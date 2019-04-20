@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Fly Firebase</ion-title>
+    <ion-buttons end>
+      <button (click)="Addhotel()" ion-button>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ 
+  <ion-list>
+  <ion-item-sliding  *ngFor="let item of items ;  let i=index">
+    <ion-item > 
+        {{item.desc }} <br>
+        {{item.nom }}  
+        
+    </ion-item>
+    <ion-item-options side="right">
+      <button ion-button color="danger" icon-only (click)="removeResto(i)">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-item-options>     
+  </ion-item-sliding>
+</ion-list>
+</ion-content>

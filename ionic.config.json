@@ -1,0 +1,7 @@
+{
+  "name": "fly",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
