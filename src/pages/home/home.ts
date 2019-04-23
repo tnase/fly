@@ -17,15 +17,19 @@ import { user } from '../../app/user';
 export class HomePage {
   items_tmp =new Array();
   items ;
-  items_total:user[]; 
- 
+  items_total:user[];
+
   db;
    keys=null;
   constructor(public navCtrl: NavController,public afd : AngularFireDatabase) {
-    
+
     this.getData();
     this.saveData()
-  
+
+  }
+
+  goToPostPage(){
+    //this.navCtrl.push(DeplacementIntraUrbainPage);
   }
 
 
@@ -35,21 +39,21 @@ export class HomePage {
     this.db.on('value',data=>{
       console.log(data.val());
       var restos=data.val();
-      this.items_total=data.val(); 
+      this.items_total=data.val();
       if(restos)  {
         this.keys=Object.keys(restos);
         for(var i=0;i<this.keys.length;i++){
            var k=this.keys[i];
            this.items_tmp.push(restos[k])
         }
-      } 
-            
+      }
+
     })
 
 
    }
 
-   
+
 
    getData(){
      this.afd.list('/resto/').valueChanges().subscribe(
